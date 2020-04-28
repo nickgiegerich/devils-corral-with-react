@@ -81,23 +81,15 @@ function Nav(props) {
           <div className={classes.toolbar} />
           <img src={require('../../../static/logos/devils_logo_sm.png')} alt="logo" className={classes.logo} />
           <Divider />
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <List style={{ color: 'white'}}>
+            {['HOME', 'DEVELOPMENT', 'VIDEOS', 'INVESTMENT OPPORTUNITIES', 'NEWS-PRESS', 'CONTACT'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={text}  />
               </ListItem>
             ))}
           </List>
           <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
         </div>
       );
     
