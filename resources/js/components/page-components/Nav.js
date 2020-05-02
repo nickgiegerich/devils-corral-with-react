@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../css/App.css';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
+import NavLinkMui from '../NavLinkMui'
 
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,16 +11,26 @@ import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+
 import MenuIcon from '@material-ui/icons/Menu';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
+import ExploreIcon from '@material-ui/icons/Explore';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import MovieFilterIcon from '@material-ui/icons/MovieFilter';
+import ArtTrackIcon from '@material-ui/icons/ArtTrack';
+
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Collapse } from '@material-ui/core';
 
 
 const drawerWidth = 240;
@@ -71,25 +82,104 @@ function Nav(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [openDev, setOpenDev] = React.useState(false);
+    const [openVid, setOpenVid] = React.useState(false);
   
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
 
+    const handleDevClick = () => { 
+      setOpenDev(!openDev);
+    }
+
+    const handleVidClick = () => { 
+      setOpenVid(!openVid);
+    }
+
     const drawer = (
         <div>
           <div className={classes.toolbar} />
           <img src={require('../../../static/logos/devils_logo_sm.png')} alt="logo" className={classes.logo} />
-          <Divider />
-          <List style={{ color: 'white'}}>
-            {['HOME', 'DEVELOPMENT', 'VIDEOS', 'INVESTMENT OPPORTUNITIES', 'NEWS-PRESS', 'CONTACT'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text}  />
+          
+            <Divider />
+            
+            <List style={{ color: 'white'}}>
+
+              <ListItem button component={NavLinkMui} to='/'>
+                <ListItemText primary="HOME"/>
               </ListItem>
-            ))}
-          </List>
-          <Divider />
+
+              <ListItem button onClick={handleDevClick}>
+                <ListItemText primary="DEVELOPMENT"/>
+                {openDev ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={openDev} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+
+                    <ListItem button component={NavLinkMui} to='/ideas'>
+                      <ListItemIcon style={{ color: 'white'}}>
+                        <WbIncandescentIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Ideas" />
+                    </ListItem>
+
+                    <ListItem button component={NavLinkMui} to='/'>
+                      <ListItemIcon style={{ color: 'white'}}>
+                        <ExploreIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Maps" />
+                    </ListItem>
+
+                    <ListItem button component={NavLinkMui} to='/'>
+                      <ListItemIcon style={{ color: 'white'}}>
+                        <MenuBookIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Strategy" />
+                    </ListItem>
+
+                </List>
+              </Collapse>
+
+              <ListItem button onClick={handleVidClick}>
+                <ListItemText primary="VIDEOS"/>
+                {openVid ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+              <Collapse in={openVid} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+
+                    <ListItem button component={NavLinkMui} to='/ideas'>
+                      <ListItemIcon style={{ color: 'white'}}>
+                        <MovieFilterIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Premiere of strategy" />
+                    </ListItem>
+
+                    <ListItem button component={NavLinkMui} to='/'>
+                      <ListItemIcon style={{ color: 'white'}}>
+                        <ArtTrackIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="The voyage" />
+                    </ListItem>
+
+                </List>
+              </Collapse>
+
+              <ListItem button component={NavLinkMui} to='/ideas'>
+                <ListItemText primary="INVESTMENT OPPORTUNITIES"/>
+              </ListItem>
+
+              <ListItem button component={NavLinkMui} to='/ideas'>
+                <ListItemText primary="NEWS-PRESS"/>
+              </ListItem>
+
+              <ListItem button component={NavLinkMui} to='/ideas'>
+                <ListItemText primary="CONTACT"/>
+              </ListItem>
+
+            </List>
+            
+            <Divider />
         </div>
       );
     

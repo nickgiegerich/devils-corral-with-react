@@ -73,7 +73,11 @@ function Home() {
                 <Typography style={{ color: 'white'}}>Created by Idaho's Talent<br/> 
                 Web Developer: Nick Giegerich | ngiegerich@gmail.com<br/> 
                 Content Developer: Forever Wild Media | seanmuldoon@foreverwild.media<br/>
-                <PhotoCameraSharpIcon style={{ color: 'white'}}/>: Snake River Canyon
+                <div className="home-camera-icon">
+                  <div><PhotoCameraSharpIcon style={{ color: 'white'}}/></div>
+                    <div style={{paddingRight: 6}}>:</div>
+                    <div>Snake River Canyon</div>
+                </div>
                 </Typography>
             </Popover>
           </div>

@@ -40,6 +40,12 @@ nav {
     align-items: flex-end;
 }
 
+.home-camera-icon { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .MuiDrawer-paperAnchorLeft {
     right: 0 !important;
     left: auto !important;
