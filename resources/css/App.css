@@ -33,6 +33,17 @@ nav {
     background-size: cover;
 }
 
+.page-header { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-divider { 
+    width: 50vw;
+}
+
 .home-info { 
     display: flex;
     flex-direction: row;

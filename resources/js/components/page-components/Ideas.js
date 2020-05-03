@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 function Ideas() {
     return (
         <div className="container">
-           Ideas
+            Ideas
         </div>
     );
 }

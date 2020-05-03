@@ -25,6 +25,7 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import MovieFilterIcon from '@material-ui/icons/MovieFilter';
 import ArtTrackIcon from '@material-ui/icons/ArtTrack';
+import MenuOpenRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
 
 import Toolbar from '@material-ui/core/Toolbar';
@@ -196,7 +197,7 @@ function Nav(props) {
                     onClick={handleDrawerToggle}
                     className={classes.menuButton}
                 >
-                    <MenuIcon />
+                    <MenuOpenRoundedIcon />
                 </IconButton>
                 </Toolbar>
             </AppBar>
