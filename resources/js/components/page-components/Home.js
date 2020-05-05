@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../css/App.css';
 import ReactDOM from 'react-dom';
+import Nav from './Nav';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
@@ -39,8 +40,9 @@ function Home() {
     const open = Boolean(anchorEl);
 
     return (
-       <div className="bg home-info">
+      <div className="bg home-info">
           <div>
+       
             <Typography
               aria-owns={open ? 'mouse-over-popover' : undefined}
               aria-haspopup="true"
@@ -81,6 +83,7 @@ function Home() {
                 </Typography>
             </Popover>
           </div>
+            <Nav />
        </div>
     );
 }

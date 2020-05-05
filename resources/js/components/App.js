@@ -7,18 +7,30 @@ import Ideas from './page-components/Ideas';
 import Strategy from './page-components/Strategy';
 import Contact from './page-components/Contact';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
+
+
 
 function App() {
     return (
         <Router>
             <div className="App">
-                <Nav />
-                <Switch>
-                    <Route path="/" exact component={Home}/>
-                    <Route path="/ideas" component={Ideas}/>
-                    <Route path="/strategy" component={Strategy}/>
-                    <Route path="/contact" component={Contact}/>
-                </Switch>
+                <Route render={({location}) => (
+                    <TransitionGroup>
+                        <CSSTransition
+                            key={location.key}
+                            timeout={300}
+                            classNames="fade">
+                            <Switch location={location}>
+                                <Route path="/" exact component={Home}/>
+                                <Route path="/ideas" component={Ideas}/>
+                                <Route path="/strategy" component={Strategy}/>
+                                <Route path="/contact" component={Contact}/>
+                            </Switch>
+                        </CSSTransition>
+                    </TransitionGroup>
+                )}/>
             </div>
         </Router>
     );
