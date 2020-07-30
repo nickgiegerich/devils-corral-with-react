@@ -4,12 +4,17 @@ import { withRouter } from 'react-router-dom';
 
 
 const Breadcrumbs = props => {
-    console.log(props);
+    const {
+        history,
+        location: {pathname}
+    } = props;
+    const pathnames = pathname.split("/").filter(x => x);
   return (
     <MUIBreadcrumbs aria-label="breadcrumb">
-      <Link color="inherit">Material-UI</Link>
-      <Link color="inherit">Core</Link>
-      <Typography color="textPrimary">Breadcrumb</Typography>
+      <Link onClick={() => history.push("/")}>Home</Link>
+      {pathnames.map((name, index) => {
+          return <Link onClick={() => history.push("/")}>{name}</Link>;
+      })}
     </MUIBreadcrumbs>
   );
 }

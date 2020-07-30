@@ -18,9 +18,10 @@ function App() {
     return (
         <Router>
             <div className="App">
+            <Breadcrumbs/>
                 <Route render={({location}) => (
                     <TransitionGroup>
-                        <Breadcrumbs/>
+                        
                         <CSSTransition
                             key={location.key}
                             timeout={300}
