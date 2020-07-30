@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../css/App.css';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import NavLinkMui from '../NavLinkMui'
+import NavLinkMui from '../NavLinkMui';
 
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';

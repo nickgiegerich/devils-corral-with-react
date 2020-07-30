@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../css/App.css';
 import ReactDOM from 'react-dom';
+import PersistentDrawerRight from './Nav-Secondary';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -15,6 +16,13 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
       color: theme.palette.text.secondary,
     },
+    contentShift: {
+      transition: theme.transitions.create('margin', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      marginRight: 0,
+    },
   }));
 
 function Ideas() {
@@ -22,13 +30,61 @@ function Ideas() {
     const classes = useStyles();
 
     return (
-         <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={8}>
-          <Paper className={classes.paper}>xs=8</Paper>
-        </Grid>
-      </Grid>
+      <div className={classes.root}>
+        <div>
+          <PersistentDrawerRight/>
+        </div>
+            
+          
+          <Grid container spacing={3} >
+           <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+            <Grid item xs={12}>
+             <Paper className={classes.paper}>xs=8</Paper>
+            </Grid>
+          </Grid>
     </div>
+
     );
 }
 
