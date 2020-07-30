@@ -17,6 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Breadcrumbs from './Breadcrumbs';
 
 import NavLinkMui from '../NavLinkMui';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -148,7 +149,7 @@ export default function PersistentDrawerRight() {
                 <ListItemText primary="Maps" />
               </ListItem>
 
-              <ListItem button component={NavLinkMui} to='/'>
+              <ListItem button component={NavLinkMui} to='/strategy'>
                 <ListItemIcon style={{ color: 'white'}}>
                   <MenuBookIcon />
                 </ListItemIcon>
@@ -190,7 +191,7 @@ export default function PersistentDrawerRight() {
           <ListItemText primary="NEWS-PRESS"/>
         </ListItem>
 
-        <ListItem button component={NavLinkMui} to='/ideas'>
+        <ListItem button component={NavLinkMui} to='/contact'>
           <ListItemText primary="CONTACT"/>
         </ListItem>
 

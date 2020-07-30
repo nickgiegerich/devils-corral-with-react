@@ -9,6 +9,8 @@ import Contact from './page-components/Contact';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
+import Breadcrumbs from './page-components/Breadcrumbs';
+
 
 
 
@@ -18,10 +20,12 @@ function App() {
             <div className="App">
                 <Route render={({location}) => (
                     <TransitionGroup>
+                        <Breadcrumbs/>
                         <CSSTransition
                             key={location.key}
                             timeout={300}
                             classNames="fade">
+                                
                             <Switch location={location}>
                                 <Route path="/" exact component={Home}/>
                                 <Route path="/ideas" component={Ideas}/>
@@ -33,6 +37,7 @@ function App() {
                 )}/>
             </div>
         </Router>
+        
     );
 }
 
