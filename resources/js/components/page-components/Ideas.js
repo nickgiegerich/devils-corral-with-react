@@ -35,11 +35,14 @@ function Ideas() {
         <div>
           <PersistentDrawerRight/>
         </div>
-            
-          
-          <Grid container spacing={3} >
-            
+        <div>
+          <Grid>
+            <Paper className="My-MuiPaper-root My-MuiPaper-elevation1 page-title"> 
+            Developmental Ideas 
+            </Paper>
           </Grid>
+          </div>
+
     </div>
 
     );

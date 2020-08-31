@@ -72,6 +72,16 @@ nav {
     background-color: rgba(62, 63, 58, 0.521) !important;
 }
 
+.My-MuiPaper-root { 
+    color: rgba(0, 0, 0, 0);
+    transition: box-shadow 300ms cubic-bezier(0.0, 0, 0.0, 0) 0ms;
+    background-color: rgba(62, 63, 58, 0) !important;
+}
+
+.My-MuiPaper-elevation1 { 
+    box-shadow: 0 !important;
+}
+
 .page { 
     position: absolute;
     top: 100px;
@@ -98,4 +108,8 @@ nav {
 .fade-exit.fade-exit-active { 
     opacity: 0;
     transition: opacity 150ms linear;
+}
+
+.myTitle {
+    background-color: blue !important;
 }

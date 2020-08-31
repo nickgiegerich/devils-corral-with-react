@@ -15,9 +15,11 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Hidden from '@material-ui/core/Hidden';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Breadcrumbs from './Breadcrumbs';
+import Nav from './Nav';
 
 import NavLinkMui from '../NavLinkMui';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -90,23 +92,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerRight() {
+export default function PersistentDrawerRight(props) {
   const classes = useStyles();
+  const {container} = props;
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [openDev, setOpenDev] = React.useState(false);
   const [openVid, setOpenVid] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
+  const handleDesktopDrawer = () => {
+    setOpen(!open);
   };
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  const handleDrawerToggle = () => {
+  const handleMobileDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
@@ -213,15 +212,29 @@ export default function PersistentDrawerRight() {
           <Typography variant="h6" noWrap className={classes.title}>
             <img src={require('../../../static/logos/devils_logo_sm.png')} alt="logo" className={classes.logo} />
           </Typography>
+          <Hidden only={['sm', 'xs']} implementation="css">
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="end"
-            onClick={handleDrawerOpen}
+            onClick={handleDesktopDrawer}
             className={clsx(open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
+          </Hidden>
+
+          {/* <Hidden only={['md','lg', 'xl']}  implementation="css">
+          <IconButton
+            color="inherit"
+            aria-label="open mobile drawer"
+            edge="end"
+            onClick={handleMobileDrawerToggle}
+            className={clsx(open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          </Hidden> */}
         </Toolbar>
       </AppBar>
       <main
@@ -254,6 +267,7 @@ export default function PersistentDrawerRight() {
           accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a. */}
         </Typography>
       </main>
+      <Hidden only={['sm', 'xs']} implementation="css">
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -264,13 +278,18 @@ export default function PersistentDrawerRight() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDesktopDrawer}>
             {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <Divider />
         {drawer}
       </Drawer>
+      </Hidden>
+
+      <Hidden only={['md','lg', 'xl']} implementation="css">
+        <Nav/>
+      </Hidden>
     </div>
   );
 }

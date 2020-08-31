@@ -18,7 +18,6 @@ function App() {
     return (
         <Router>
             <div className="App">
-            <Breadcrumbs/>
                 <Route render={({location}) => (
                     <TransitionGroup>
                         
